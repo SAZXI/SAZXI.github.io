@@ -1,0 +1,202 @@
+.text-animation {
+    font-size: 18px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    text-align: right;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+}
+
+
+.text-animation.rtl span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-right-to-left 4s linear infinite;
+}
+
+
+.text-animation.ltr span {
+    display: inline-block;
+    padding-right: 100%;
+    animation: scroll-left-to-right 4s linear infinite;
+}
+
+
+.text-animation.touch-sides span {
+    display: inline-block;  
+    animation: touch-left-and-right 6s ease-in-out infinite;
+}
+
+.text-animation.bounce-color span {
+    display: inline-block;
+    animation: bounce-left-right-color 6s ease-in-out infinite;
+}
+
+.text-animation.vertical-up {
+    height: 100px; 
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.text-animation.vertical-up span {
+    display: inline-block;
+    animation: move-up-only 1s linear infinite;
+}
+
+
+.text-animation.vertical {
+    height: 100px; 
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.text-animation.vertical span {
+    display: inline-block;
+    padding-bottom: 10%;
+    animation: move-up-down 1s ease-in-out infinite;
+}
+
+.text-animation.vertical-down {
+    height: 100px; 
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.text-animation.vertical-down span {
+    display: inline-block; 
+    animation: move-down-only 1s linear infinite;
+}
+
+.animated-box {
+    width: 100px;
+    height: 50px;
+    align-items: left;
+    background-color: red;
+    animation: move-left-right-color 5s ease-in-out infinite;
+}
+.controls {
+    position: fixed;
+    text-align: center;  
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+@keyframes scroll-right-to-left {
+    from {
+        transform: translateX(5%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll-left-to-right {
+    from {
+        transform: translateX(-5%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes touch-left-and-right {
+    100% {
+        transform: translateX(0%);
+    }
+    50% {
+        transform: translateX(calc(100% - 100vw));
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes bounce-left-right-color {
+    0% {
+        transform: translateX(0);
+        color: red;
+    }
+    25% {
+        color: green;
+    }
+    50% {
+        transform: translateX(calc(100% - 100vw));
+        color: blue;
+    }
+    75% {
+        color: yellow;
+    }
+    100% {
+        transform: translateX(0); 
+        color: red; 
+    }
+}
+
+@keyframes move-up-only {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-5%);
+    }
+}
+
+@keyframes move-up-down {
+    0% {
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(calc(-6% + 6vw));
+    }
+    100% {
+        transform: translateY(0); 
+    }
+}
+
+@keyframes move-down-only {
+    0% {
+        transform: translateY(-10%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes move-left-right-color {
+    0% {
+        transform: translateX(0);
+        background-color: black;
+    }
+    25% {
+        background-color: gray;
+    }
+    50% {
+        transform: translateX(calc(-100% + 100vw));
+        background-color: white;
+    }
+    75% {
+        background-color: darkcyan;
+    }
+    100% {
+        transform: translateX(0);
+        background-color: black;
+    }
+}
